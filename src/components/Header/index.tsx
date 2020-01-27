@@ -30,11 +30,11 @@ export default function Header(props: Props) {
         backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
       }}>
       <div className="sub-container-header">
-        <strong
+        <h1
           className="title-header"
           style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}>
           {title}
-        </strong>
+        </h1>
         <div
           className="button-header"
           style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}

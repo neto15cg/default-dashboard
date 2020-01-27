@@ -7,7 +7,7 @@ import {rootReducer} from './ducks';
 const persistConfig = {
   key: 'frontend-challenge',
   storage: storage,
-  whitelist: [],
+  whitelist: ['darkmode'],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(persistedReducer, compose(applyMiddleware(thunk)));

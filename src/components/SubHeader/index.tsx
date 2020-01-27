@@ -5,17 +5,19 @@ import Select from 'src/components/Select';
 
 export interface Props {
   darkmode: boolean;
+  onChangeText: (text: string) => void;
+  onSelectFilter: (filter: string) => void;
 }
 
 export default function SubHeader(props: Props) {
-  const {darkmode} = props;
+  const {darkmode, onChangeText, onSelectFilter} = props;
   return (
     <div className="container-sub-header">
-      <Input darkmode={darkmode} onChangeText={text => console.log(text)} />
+      <Input darkmode={darkmode} onChangeText={text => onChangeText(text)} />
       <Select
         darkmode={darkmode}
-        opstions={['xxxxx', 'yyyy', 'zzzz']}
-        onClick={option => console.log(option)}
+        opstions={['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
+        onClick={option => onSelectFilter(option)}
       />
     </div>
   );
