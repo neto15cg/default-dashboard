@@ -4,18 +4,19 @@ import './style.css';
 import IosSearch from 'react-ionicons/lib/IosSearch';
 
 export interface Props {
-  darkmode?: boolean;
+  darkmode: boolean;
+  onChangeText: (text: string) => void;
 }
 
 export default function Input(props: Props) {
-  const {darkmode} = props;
+  const {darkmode, onChangeText} = props;
   return (
     <div
-      className="ContainerInput"
+      className="container-input"
       style={{
         backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
       }}>
-      <div className="ContainerIconInput">
+      <div className="container-icon-input">
         <IosSearch
           fontSize="20px"
           color={darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}
@@ -29,9 +30,9 @@ export default function Input(props: Props) {
           backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
           color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
         }}
-        className="Input"
+        className="input"
         placeholder="Search for a country..."
-        onChange={e => console.log(e.target.value)}
+        onChange={e => onChangeText(e.target.value)}
       />
     </div>
   );

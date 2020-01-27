@@ -1,22 +1,23 @@
-.ContainerInput {
-  width: 300px;
+.container-input {
+  width: 375px;
   height: 40px;
   box-shadow: 0px 0px 1px #ccc;
   display: flex;
   padding-left: 10px;
-  margin-right: 20px;
+  margin-bottom: 10px;
 }
 
-.Input {
+.input {
   border-width: 0px;
-  flex: 8;
+  flex: 9;
   padding: 5px;
   font-family: NunitoSans;
+  font-size: 14px;
 }
 
-.ContainerIconInput {
+.container-icon-input {
   display: flex;
-  flex: 2;
+  flex: 1;
   align-items: center;
   justify-content: center;
 }

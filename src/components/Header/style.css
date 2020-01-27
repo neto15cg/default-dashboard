@@ -1,4 +1,4 @@
-.ContainerHeader {
+.container-header {
   height: 80px;
   width: 100%;
   background-color: hsl(0, 0%, 100%);
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.SubContainerHeader {
+.sub-container-header {
   display: flex;
   align-items: center;
   flex: 1;
@@ -15,7 +15,7 @@
   justify-content: space-between;
 }
 
-.TitleHeader {
+.title-header {
   font-size: 18px;
   font-family: NunitoSans;
   font-weight: 800;
@@ -23,7 +23,7 @@
   flex-wrap: nowrap;
 }
 
-.ButtonHeader {
+.button-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,12 +35,12 @@
   flex-wrap: nowrap;
 }
 
-/* @media only screen and (max-width: 375px) {
-  .SubContainerHeader {
+@media only screen and (max-width: 375px) {
+  .sub-container-header {
     display: flex;
     align-items: center;
     flex: 1;
     padding: 0px 20px 0px 20px;
     justify-content: space-between;
   }
-} */
+}

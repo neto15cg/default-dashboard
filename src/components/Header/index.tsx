@@ -25,18 +25,18 @@ export default function Header(props: Props) {
 
   return (
     <header
-      className="ContainerHeader"
+      className="container-header"
       style={{
         backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
       }}>
-      <div className="SubContainerHeader">
+      <div className="sub-container-header">
         <strong
-          className="TitleHeader"
+          className="title-header"
           style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}>
           {title}
         </strong>
         <div
-          className="ButtonHeader"
+          className="button-header"
           style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}
           onClick={() => handleChangeDarkmode()}>
           <MoonIcon

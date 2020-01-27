@@ -13,7 +13,7 @@ export default function SubContainer(props: React.PropsWithChildren<Props>) {
       style={{
         backgroundColor: darkmode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)',
       }}
-      className="SubContainer">
+      className="sub-container">
       {children}
     </div>
   );
