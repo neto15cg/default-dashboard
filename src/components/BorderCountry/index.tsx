@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import api from 'src/services/api';
+import {colorElements, colorText} from 'src/util/Colors';
 import './style.css';
 
 export interface Props {
@@ -25,8 +26,8 @@ export default function CountryBorder(props: Props) {
         onClick={() => onClick()}
         className="border-country"
         style={{
-          backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
-          color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+          backgroundColor: colorElements(darkmode),
+          color: colorText(darkmode),
         }}>
         {country && country.name}
       </button>

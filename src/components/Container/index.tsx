@@ -1,9 +1,9 @@
 import React from 'react';
-
+import {colorBackground} from 'src/util/Colors';
 import './style.css';
 
 export interface Props {
-  darkmode?: boolean;
+  darkmode: boolean;
 }
 
 export default function Container(props: React.PropsWithChildren<Props>) {
@@ -11,7 +11,7 @@ export default function Container(props: React.PropsWithChildren<Props>) {
   return (
     <div
       style={{
-        backgroundColor: darkmode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)',
+        backgroundColor: colorBackground(darkmode),
       }}
       className="container">
       {children}

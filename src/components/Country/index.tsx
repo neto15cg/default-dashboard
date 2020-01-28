@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import {colorElements, colorText} from 'src/util/Colors';
 
 export interface Props {
   darkmode: boolean;
@@ -18,27 +19,27 @@ export default function(props: Props) {
       onClick={() => onClick()}
       className="container-country"
       style={{
-        backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+        backgroundColor: colorElements(darkmode),
       }}>
-      <img src={flag} alt="country" style={{width: '100%', height: '60%'}} />
+      <img src={flag} alt={name} style={{width: '100%', height: '50%'}} />
       <div className="country-information">
         <strong
           className="contry-title"
           style={{
-            color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+            color: colorText(darkmode),
           }}>
           {name}
         </strong>
         <label
           className="label-country"
           style={{
-            color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+            color: colorText(darkmode),
           }}>
           Population:&nbsp;
           <span
             className="value-country"
             style={{
-              color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+              color: colorText(darkmode),
             }}>
             {population}
           </span>
@@ -46,13 +47,13 @@ export default function(props: Props) {
         <label
           className="label-country"
           style={{
-            color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+            color: colorText(darkmode),
           }}>
           Region:&nbsp;
           <span
             className="value-country"
             style={{
-              color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+              color: colorText(darkmode),
             }}>
             {region}
           </span>
@@ -60,13 +61,13 @@ export default function(props: Props) {
         <label
           className="label-country"
           style={{
-            color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+            color: colorText(darkmode),
           }}>
           Capital:&nbsp;
           <span
             className="value-country"
             style={{
-              color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+              color: colorText(darkmode),
             }}>
             {capital}
           </span>

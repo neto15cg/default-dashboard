@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 //@ts-ignore
 import IosSearch from 'react-ionicons/lib/IosSearch';
+import {colorElements, colorText, colorInput} from 'src/util/Colors';
 
 export interface Props {
   darkmode: boolean;
@@ -14,12 +15,12 @@ export default function Input(props: Props) {
     <div
       className="container-input"
       style={{
-        backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+        backgroundColor: colorElements(darkmode),
       }}>
       <div className="container-icon-input">
         <IosSearch
           fontSize="20px"
-          color={darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}
+          color={colorText(darkmode)}
           style={{
             marginRight: 5,
           }}
@@ -28,7 +29,7 @@ export default function Input(props: Props) {
       <input
         style={{
           backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
-          color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+          color: colorInput(darkmode),
         }}
         className="input"
         placeholder="Search for a country..."

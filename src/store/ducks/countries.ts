@@ -66,6 +66,7 @@ export const countriesReducer: Reducer<CountriesState> = createReducer(
   {
     [CountriesTypes.ListCountriesStart](state: CountriesState) {
       state.loading['loading.list'] = true;
+      state.data.countries = [];
       return state;
     },
     [CountriesTypes.ListCountriesSuccess](
@@ -87,6 +88,7 @@ export const countriesReducer: Reducer<CountriesState> = createReducer(
     },
     [CountriesTypes.GetCountriesStart](state: CountriesState) {
       state.loading['loading.list'] = true;
+      state.data.country = {} as any;
       return state;
     },
     [CountriesTypes.GetCountriesSuccess](
@@ -102,7 +104,7 @@ export const countriesReducer: Reducer<CountriesState> = createReducer(
       action: Actions['GetCountriesFailure'],
     ) {
       state.loading['loading.list'] = false;
-      state.data.countries = {} as any;
+      state.data.country = {} as any;
       state.error = action.payload;
       return state;
     },

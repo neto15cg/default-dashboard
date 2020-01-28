@@ -9,6 +9,7 @@ import {RouteComponentProps, useHistory} from 'react-router-dom';
 import Button from 'src/components/Button';
 import {getCountries} from 'src/store/ducks/countries';
 import BorderCountry from 'src/components/BorderCountry';
+import {colorText} from 'src/util/Colors';
 import './style.css';
 
 export default function Details(props: RouteComponentProps) {
@@ -61,10 +62,10 @@ export default function Details(props: RouteComponentProps) {
             />
           </>
         </SubHeader>
-        <div className="body-home">
+        <div className="body-detail">
           <div className="body-content">
             <div className="content">
-              <img className="flag-detail" src={flag} alt="country" />
+              <img className="flag-detail" src={flag} alt={name} />
             </div>
           </div>
           <div className="body-content">
@@ -72,7 +73,7 @@ export default function Details(props: RouteComponentProps) {
               <h1
                 className="contry-title-detail"
                 style={{
-                  color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+                  color: colorText(darkmode),
                 }}>
                 {name}
               </h1>
@@ -81,17 +82,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Native Name:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {nativeName}
                     </span>
@@ -99,17 +96,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Population:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {population}
                     </span>
@@ -117,17 +110,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Region:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {region}
                     </span>
@@ -135,17 +124,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Sub Region:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {subregion}
                     </span>
@@ -153,17 +138,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Sub Region:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {capital}
                     </span>
@@ -173,17 +154,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Top Level Domain:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {topLevelDomain && topLevelDomain.length > 0
                         ? topLevelDomain[0]
@@ -193,17 +170,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Currencies:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {currencies &&
                         currencies.map((currency: any, index: number) => {
@@ -216,17 +189,13 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-country-detail"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Languages:&nbsp;
                     <span
                       className="value-country-detail"
                       style={{
-                        color: darkmode
-                          ? 'hsl(0, 0%, 100%)'
-                          : 'hsl(200, 15%, 8%)',
+                        color: colorText(darkmode),
                       }}>
                       {languages &&
                         languages.map((language: any, index: number) => {
@@ -243,9 +212,7 @@ export default function Details(props: RouteComponentProps) {
                   <label
                     className="label-border-country"
                     style={{
-                      color: darkmode
-                        ? 'hsl(0, 0%, 100%)'
-                        : 'hsl(200, 15%, 8%)',
+                      color: colorText(darkmode),
                     }}>
                     Border Countries:&nbsp;
                   </label>

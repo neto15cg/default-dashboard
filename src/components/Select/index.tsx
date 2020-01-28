@@ -2,9 +2,10 @@ import React from 'react';
 import './style.css';
 //@ts-ignore
 import IosArrowDown from 'react-ionicons/lib/IosArrowDown';
+import {colorElements, colorText} from 'src/util/Colors';
 
 export interface Props {
-  darkmode?: boolean;
+  darkmode: boolean;
   opstions: string[];
   onClick: (option: string) => void;
 }
@@ -16,22 +17,19 @@ export default function Input(props: Props) {
       <div
         className="dropdown-container-title"
         style={{
-          backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+          backgroundColor: colorElements(darkmode),
         }}>
-        <span
-          style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}>
-          Filter by Region
-        </span>
+        <span style={{color: colorText(darkmode)}}>Filter by Region</span>
         <IosArrowDown
           fontSize="14px"
-          color={darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}
+          color={colorText(darkmode)}
           style={{marginTop: 3, marginLeft: 5}}
         />
       </div>
       <div
         className="dropdown-content"
         style={{
-          backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+          backgroundColor: colorElements(darkmode),
         }}>
         {opstions.map(option => {
           return (
@@ -40,7 +38,7 @@ export default function Input(props: Props) {
               className="dropdown-options"
               onClick={() => onClick(option)}
               style={{
-                color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+                color: colorText(darkmode),
               }}>
               {option}
             </p>

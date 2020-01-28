@@ -5,6 +5,7 @@ import MoonIcon from 'react-ionicons/lib/IosMoon';
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from 'src/store/ducks/state';
 import {changeDarkmode} from 'src/store/ducks/darkmode';
+import {colorElements, colorText} from 'src/util/Colors';
 
 export interface Props {
   title: string;
@@ -27,21 +28,19 @@ export default function Header(props: Props) {
     <header
       className="container-header"
       style={{
-        backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+        backgroundColor: colorElements(darkmode),
       }}>
       <div className="sub-container-header">
-        <h1
-          className="title-header"
-          style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}>
+        <h1 className="title-header" style={{color: colorText(darkmode)}}>
           {title}
         </h1>
         <div
           className="button-header"
-          style={{color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}}
+          style={{color: colorText(darkmode)}}
           onClick={() => handleChangeDarkmode()}>
           <MoonIcon
             fontSize="20px"
-            color={darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}
+            color={colorText(darkmode)}
             style={{marginRight: 5}}
           />
           Dark Mode

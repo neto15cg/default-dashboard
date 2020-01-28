@@ -1,6 +1,7 @@
 import React from 'react';
 //@ts-ignore
 import IosArrowRoundBack from 'react-ionicons/lib/IosArrowRoundBack';
+import {colorElements, colorText} from 'src/util/Colors';
 import './style.css';
 
 export interface Props {
@@ -16,12 +17,12 @@ export default function Button(props: Props) {
         onClick={() => onClick()}
         className="button"
         style={{
-          backgroundColor: darkmode ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
-          color: darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+          backgroundColor: colorElements(darkmode),
+          color: colorText(darkmode),
         }}>
         <IosArrowRoundBack
           fontSize="20px"
-          color={darkmode ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'}
+          color={colorText(darkmode)}
           style={{
             marginRight: 5,
           }}
