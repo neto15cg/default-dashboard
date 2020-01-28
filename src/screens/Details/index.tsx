@@ -8,6 +8,7 @@ import SubHeader from 'src/components/SubHeader';
 import {RouteComponentProps, useHistory} from 'react-router-dom';
 import Button from 'src/components/Button';
 import {getCountries} from 'src/store/ducks/countries';
+import BorderCountry from 'src/components/BorderCountry';
 import './style.css';
 
 export default function Details(props: RouteComponentProps) {
@@ -45,6 +46,7 @@ export default function Details(props: RouteComponentProps) {
     topLevelDomain,
     currencies,
     languages,
+    borders,
   } = country;
   return (
     <Container darkmode={darkmode}>
@@ -75,7 +77,7 @@ export default function Details(props: RouteComponentProps) {
                 {name}
               </h1>
               <div className="content-detail-information">
-                <div className="column1">
+                <div className="column">
                   <label
                     className="label-country-detail"
                     style={{
@@ -205,7 +207,7 @@ export default function Details(props: RouteComponentProps) {
                       }}>
                       {currencies &&
                         currencies.map((currency: any, index: number) => {
-                          return currencies.length > 1 && index === 0
+                          return index === 0
                             ? ` ${currency.name}`
                             : `, ${currency.name}`;
                         })}
@@ -228,7 +230,7 @@ export default function Details(props: RouteComponentProps) {
                       }}>
                       {languages &&
                         languages.map((language: any, index: number) => {
-                          return languages.length > 1 && index === 0
+                          return index === 0
                             ? ` ${language.name}`
                             : `, ${language.name}`;
                         })}
@@ -236,6 +238,30 @@ export default function Details(props: RouteComponentProps) {
                   </label>
                 </div>
               </div>
+              {borders && borders.length > 0 && (
+                <div className="border-country-body">
+                  <label
+                    className="label-border-country"
+                    style={{
+                      color: darkmode
+                        ? 'hsl(0, 0%, 100%)'
+                        : 'hsl(200, 15%, 8%)',
+                    }}>
+                    Border Countries:&nbsp;
+                  </label>
+                  {borders &&
+                    borders.map((alpha3Code: string) => {
+                      return (
+                        <BorderCountry
+                          key={alpha3Code}
+                          alpha3Code={alpha3Code}
+                          darkmode={darkmode}
+                          onClick={() => history.push(`/details/${alpha3Code}`)}
+                        />
+                      );
+                    })}
+                </div>
+              )}
             </div>
           </div>
         </div>
