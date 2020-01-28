@@ -7,6 +7,9 @@ import SubContainer from 'src/components/SubContainer';
 import SubHeader from 'src/components/SubHeader';
 import Contry from 'src/components/Country';
 import {listCountries} from 'src/store/ducks/countries';
+import Input from 'src/components/Input';
+import Select from 'src/components/Select';
+import {useHistory} from 'react-router-dom';
 import './style.css';
 
 export default function Home() {
@@ -18,6 +21,7 @@ export default function Home() {
   );
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(listCountries());
@@ -27,23 +31,42 @@ export default function Home() {
     dispatch(listCountries(region === 'All' ? undefined : region));
   }
 
+  function handleClickCountry(alpha3Code: string) {
+    history.push(`/details/${alpha3Code}`);
+  }
+
   return (
     <Container darkmode={darkmode}>
       <Header title="Where in the world?" />
       <SubContainer darkmode={darkmode}>
-        <SubHeader
-          darkmode={darkmode}
-          onChangeText={text => dispatch(listCountries(undefined, text))}
-          onSelectFilter={(filter: string) => handleListCountries(filter)}
-        />
+        <SubHeader>
+          <>
+            <Input
+              darkmode={darkmode}
+              onChangeText={text => dispatch(listCountries(undefined, text))}
+            />
+            <Select
+              darkmode={darkmode}
+              opstions={[
+                'All',
+                'Africa',
+                'Americas',
+                'Asia',
+                'Europe',
+                'Oceania',
+              ]}
+              onClick={option => handleListCountries(option)}
+            />
+          </>
+        </SubHeader>
         <div className="body-home">
           {countries.map((item: any, index: number) => {
-            const {name, flag, population, capital, region} = item;
+            const {name, flag, population, capital, region, alpha3Code} = item;
             return (
               <Contry
                 key={index}
                 darkmode={darkmode}
-                onClick={() => 'CLICADO'}
+                onClick={() => handleClickCountry(alpha3Code)}
                 flag={flag}
                 name={name}
                 population={population}
