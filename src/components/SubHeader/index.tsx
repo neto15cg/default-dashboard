@@ -16,7 +16,7 @@ export default function SubHeader(props: Props) {
       <Input darkmode={darkmode} onChangeText={text => onChangeText(text)} />
       <Select
         darkmode={darkmode}
-        opstions={['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
+        opstions={['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
         onClick={option => onSelectFilter(option)}
       />
     </div>

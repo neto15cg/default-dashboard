@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  margin-bottom: 20px;
-  justify-content: space-around;
+  justify-content: center;
+  margin: 0 20px 20px 20px;
 }
 
 .contry-title {
@@ -40,8 +40,8 @@
 
 @media only screen and (max-width: 375px) {
   .container-country {
-    width: 100%;
-    height: 375px;
+    width: 250px;
+    height: 300px;
     box-shadow: 0px 0px 1px #ccc;
     display: flex;
     flex-direction: column;

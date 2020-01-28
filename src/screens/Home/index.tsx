@@ -7,7 +7,6 @@ import SubContainer from 'src/components/SubContainer';
 import SubHeader from 'src/components/SubHeader';
 import Contry from 'src/components/Country';
 import {listCountries} from 'src/store/ducks/countries';
-
 import './style.css';
 
 export default function Home() {
@@ -25,7 +24,7 @@ export default function Home() {
   }, [dispatch]);
 
   function handleListCountries(region?: string) {
-    dispatch(listCountries(region));
+    dispatch(listCountries(region === 'All' ? undefined : region));
   }
 
   return (
