@@ -5,6 +5,13 @@
   justify-content: center;
 }
 
+.loading {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 375px) {
   .body-home {
     display: flex;

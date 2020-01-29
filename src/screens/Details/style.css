@@ -36,7 +36,7 @@
 .label-country-detail {
   font-size: 14px;
   font-family: NunitoSans;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -66,7 +66,7 @@
   font-weight: 800;
   font-family: NunitoSans;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 30px 0;
 }
 
 .column {
@@ -84,7 +84,7 @@
 .label-border-country {
   font-size: 14px;
   font-family: NunitoSans;
-  font-weight: 300;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,16 +130,18 @@
   .border-country-body {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 10px;
+    align-items: baseline;
   }
 
   .label-border-country {
     font-size: 14px;
     font-family: NunitoSans;
-    font-weight: 300;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 20px;
   }
 }

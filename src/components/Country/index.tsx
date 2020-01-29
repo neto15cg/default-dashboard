@@ -21,7 +21,7 @@ export default function(props: Props) {
       style={{
         backgroundColor: colorElements(darkmode),
       }}>
-      <img src={flag} alt={name} style={{width: '100%', height: '50%'}} />
+      <img className="image-home" src={flag} alt={name} />
       <div className="country-information">
         <strong
           className="contry-title"

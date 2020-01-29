@@ -13,11 +13,71 @@ export enum CountriesTypes {
   GetCountriesFailure = '@countries/GetCountriesFailure',
 }
 
+export type CurrencyType = {
+  code: string;
+  name: string;
+  symbol: string;
+};
+
+export type LanguagesType = {
+  iso639_1: string;
+  iso639_2: string;
+  name: string;
+  nativeName: string;
+};
+
+export type TranslationsTypes = {
+  de: string;
+  es: string;
+  fr: string;
+  ja: string;
+  it: string;
+  br: string;
+  pt: string;
+  nl: string;
+  hr: string;
+  fa: string;
+};
+
+export type RegionalBlocsTypes = {
+  acronym: string;
+  name: string;
+  otherAcronyms: string[];
+  otherNames: string[];
+};
+
+export type CountryType = {
+  name: string;
+  topLevelDomain: string[];
+  alpha2Code: string;
+  alpha3Code: string;
+  callingCodes: string[];
+  capital: string;
+  altSpellings: string[];
+  region: string;
+  subregion: string;
+  population: number;
+  latlng: number[];
+  demonym: string;
+  area: number;
+  gini: number;
+  timezones: string[];
+  borders: string[];
+  nativeName: string;
+  numericCode: string;
+  currencies: CurrencyType[];
+  languages: LanguagesType[];
+  translations: TranslationsTypes;
+  flag: string;
+  regionalBlocs: RegionalBlocsTypes[];
+  cioc: string;
+};
+
 export type Actions = {
   ListCountriesStart: {type: CountriesTypes.ListCountriesStart};
   ListCountriesSuccess: {
     type: CountriesTypes.ListCountriesSuccess;
-    payload: any[];
+    payload: CountryType[];
   };
   ListCountriesFailure: {
     type: CountriesTypes.ListCountriesFailure;
@@ -26,7 +86,7 @@ export type Actions = {
   GetCountriesStart: {type: CountriesTypes.GetCountriesStart};
   GetCountriesSuccess: {
     type: CountriesTypes.GetCountriesSuccess;
-    payload: any;
+    payload: CountryType;
   };
   GetCountriesFailure: {
     type: CountriesTypes.GetCountriesFailure;
@@ -41,8 +101,8 @@ export interface LoadingSection {
 
 export interface CountriesState {
   data: {
-    countries: any[];
-    country: any;
+    countries: CountryType[];
+    country: CountryType;
   };
 
   loading: LoadingSection;
@@ -52,7 +112,7 @@ export interface CountriesState {
 export const InitialState: CountriesState = {
   data: {
     countries: [],
-    country: {},
+    country: {} as CountryType,
   },
   loading: {
     'loading.list': false,
@@ -87,8 +147,8 @@ export const countriesReducer: Reducer<CountriesState> = createReducer(
       return state;
     },
     [CountriesTypes.GetCountriesStart](state: CountriesState) {
-      state.loading['loading.list'] = true;
-      state.data.country = {} as any;
+      state.loading['loading.get'] = true;
+      state.data.country = {} as CountryType;
       return state;
     },
     [CountriesTypes.GetCountriesSuccess](
@@ -103,8 +163,8 @@ export const countriesReducer: Reducer<CountriesState> = createReducer(
       state: CountriesState,
       action: Actions['GetCountriesFailure'],
     ) {
-      state.loading['loading.list'] = false;
-      state.data.country = {} as any;
+      state.loading['loading.get'] = false;
+      state.data.country = {} as CountryType;
       state.error = action.payload;
       return state;
     },
