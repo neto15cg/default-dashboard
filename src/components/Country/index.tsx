@@ -30,49 +30,37 @@ export default function(props: Props) {
           }}>
           {name}
         </strong>
-        <label
-          className="label-country"
-          style={{
-            color: colorText(darkmode),
-          }}>
-          Population:&nbsp;
-          <span
-            className="value-country"
-            style={{
-              color: colorText(darkmode),
-            }}>
-            {population}
-          </span>
-        </label>
-        <label
-          className="label-country"
-          style={{
-            color: colorText(darkmode),
-          }}>
-          Region:&nbsp;
-          <span
-            className="value-country"
-            style={{
-              color: colorText(darkmode),
-            }}>
-            {region}
-          </span>
-        </label>
-        <label
-          className="label-country"
-          style={{
-            color: colorText(darkmode),
-          }}>
-          Capital:&nbsp;
-          <span
-            className="value-country"
-            style={{
-              color: colorText(darkmode),
-            }}>
-            {capital}
-          </span>
-        </label>
+
+        <Label darkmode={darkmode} label={'Population'} content={population} />
+        <Label darkmode={darkmode} label={'Region'} content={region} />
+        <Label darkmode={darkmode} label={'Capital'} content={capital} />
       </div>
     </div>
   );
 }
+
+export interface LabelProps {
+  darkmode: boolean;
+  label: string;
+  content: string | number;
+}
+
+const Label = (props: LabelProps) => {
+  const {darkmode, label, content} = props;
+  return (
+    <label
+      className="label-country"
+      style={{
+        color: colorText(darkmode),
+      }}>
+      {label}:&nbsp;
+      <span
+        className="value-country"
+        style={{
+          color: colorText(darkmode),
+        }}>
+        {content}
+      </span>
+    </label>
+  );
+};

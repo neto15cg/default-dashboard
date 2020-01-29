@@ -88,136 +88,67 @@ export default function Details(props: RouteComponentProps) {
                 </h1>
                 <div className="content-detail-information">
                   <div className="column">
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Native Name:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {nativeName}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Population:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {population}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Region:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {region}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Sub Region:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {subregion}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Sub Region:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {capital}
-                      </span>
-                    </label>
+                    <Label
+                      darkmode={darkmode}
+                      label={'Native Name'}
+                      content={nativeName}
+                    />
+                    <Label
+                      darkmode={darkmode}
+                      label={'Population'}
+                      content={population}
+                    />
+                    <Label
+                      darkmode={darkmode}
+                      label={'Region'}
+                      content={region}
+                    />
+                    <Label
+                      darkmode={darkmode}
+                      label={'Sub Region'}
+                      content={subregion}
+                    />
+                    <Label
+                      darkmode={darkmode}
+                      label={'Capital'}
+                      content={capital}
+                    />
                   </div>
                   <div className="column">
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Top Level Domain:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {topLevelDomain && topLevelDomain.length > 0
-                          ? topLevelDomain[0]
-                          : ''}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Currencies:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {currencies &&
-                          currencies.map(
-                            (currency: CurrencyType, index: number) => {
-                              return index === 0
-                                ? ` ${currency.name}`
-                                : `, ${currency.name}`;
-                            },
-                          )}
-                      </span>
-                    </label>
-                    <label
-                      className="label-country-detail"
-                      style={{
-                        color: colorText(darkmode),
-                      }}>
-                      Languages:&nbsp;
-                      <span
-                        className="value-country-detail"
-                        style={{
-                          color: colorText(darkmode),
-                        }}>
-                        {languages &&
-                          languages.map(
-                            (language: LanguagesType, index: number) => {
-                              return index === 0
-                                ? ` ${language.name}`
-                                : `, ${language.name}`;
-                            },
-                          )}
-                      </span>
-                    </label>
+                    <Label
+                      darkmode={darkmode}
+                      label={'Top Level Domain'}
+                      content={topLevelDomain && topLevelDomain.toString()}
+                    />
+
+                    <Label
+                      darkmode={darkmode}
+                      label={'Currencies'}
+                      content={
+                        currencies &&
+                        currencies.map(
+                          (currency: CurrencyType, index: number) => {
+                            return index === 0
+                              ? ` ${currency.name}`
+                              : `, ${currency.name}`;
+                          },
+                        )
+                      }
+                    />
+                    <Label
+                      darkmode={darkmode}
+                      label={'Languages'}
+                      content={
+                        languages &&
+                        languages.map(
+                          (language: LanguagesType, index: number) => {
+                            return index === 0
+                              ? ` ${language.name}`
+                              : `, ${language.name}`;
+                          },
+                        )
+                      }
+                    />
                   </div>
                 </div>
                 {borders && borders.length > 0 && (
@@ -254,3 +185,29 @@ export default function Details(props: RouteComponentProps) {
     </Container>
   );
 }
+
+export interface LabelProps {
+  darkmode: boolean;
+  label: string;
+  content: string | number | any;
+}
+
+const Label = (props: LabelProps) => {
+  const {darkmode, label, content} = props;
+  return (
+    <label
+      className="label-country-detail"
+      style={{
+        color: colorText(darkmode),
+      }}>
+      {label}:&nbsp;
+      <span
+        className="value-country-detail"
+        style={{
+          color: colorText(darkmode),
+        }}>
+        {content}
+      </span>
+    </label>
+  );
+};
