@@ -1,6 +1,6 @@
 # Challenge Countries
 
-- Access the application statement at the [link](https://5e31d97dd6ae210008e5b210--elated-hoover-64a6da.netlify.com)
+- Access the application statement at the [link](https://elated-hoover-64a6da.netlify.com)
 
 ## Description
 
