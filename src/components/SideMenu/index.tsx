@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 // @ts-ignore
 import IosMenu from 'react-ionicons/lib/IosMenu';
-
 import {
   Body,
   ReducedMenu,
@@ -11,6 +10,7 @@ import {
   HeaderMenu,
   ExpandedMenuTitle,
   ExpandedMenuHeaderBody,
+  ReducedMenuBody,
 } from './styles';
 
 export interface Props {}
@@ -25,6 +25,7 @@ export default function SideMenu(props: React.PropsWithChildren<Props>) {
             <IosMenu fontSize="20px" color={'#fff'} />
           </ButtonMenu>
         </HeaderMenu>
+        <ReducedMenuBody></ReducedMenuBody>
       </ReducedMenu>
       {opened && (
         <ExpandedMenu>

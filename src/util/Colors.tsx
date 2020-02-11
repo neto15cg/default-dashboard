@@ -7,8 +7,8 @@ export const Colors = {
   backgroundSelected: '#0093EE',
   item: '#FFFFFF',
   subMenu: '#B1B6BF',
-  borderColor: '#38475B',
-  borderColorDark: '#707070',
+  border: '#38475B',
+  borderDark: '#2D3243',
 };
 
 export default Colors;

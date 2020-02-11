@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, SideBody, MainBody} from './styles';
 import SideMenu from 'src/components/SideMenu';
+import ContainerBody from 'src/components/ContainerBody';
 
 export default function Home() {
   return (
@@ -8,7 +9,9 @@ export default function Home() {
       <SideBody>
         <SideMenu />
       </SideBody>
-      <MainBody />
+      <MainBody>
+        <ContainerBody></ContainerBody>
+      </MainBody>
     </Container>
   );
 }
