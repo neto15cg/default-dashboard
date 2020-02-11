@@ -1,27 +1,14 @@
 export const Colors = {
-  darkElements: 'hsl(209, 23%, 22%)',
-  darkBackground: 'hsl(207, 26%, 17%)',
-  lightText: 'hsl(200, 15%, 8%)',
-  lightInput: 'hsl(0, 0%, 52%)',
-  lightBackground: 'hsl(0, 0%, 98%)',
-  darkText: 'hsl(0, 0%, 100%)',
-  lightElements: 'hsl(0, 0%, 100%)',
+  background: '#212F41',
+  backgroundItem: '#26374C',
+  backgroundDark: '#161B2E',
+  backgroundMenu: '#1C293B',
+  backgroundHeader: '#2C405A',
+  backgroundSelected: '#0093EE',
+  item: '#FFFFFF',
+  subMenu: '#B1B6BF',
+  borderColor: '#38475B',
+  borderColorDark: '#707070',
 };
-
-export function colorBackground(darkmode: boolean): string {
-  return darkmode ? Colors.darkBackground : Colors.lightBackground;
-}
-
-export function colorElements(darkmode: boolean): string {
-  return darkmode ? Colors.darkElements : Colors.lightElements;
-}
-
-export function colorText(darkmode: boolean): string {
-  return darkmode ? Colors.darkText : Colors.lightText;
-}
-
-export function colorInput(darkmode: boolean): string {
-  return darkmode ? Colors.darkText : Colors.lightInput;
-}
 
 export default Colors;
