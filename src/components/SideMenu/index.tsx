@@ -6,36 +6,57 @@ import {
   ReducedMenu,
   ExpandedMenu,
   ButtonMenu,
-  ExpandedMenuBody,
   HeaderMenu,
   ExpandedMenuTitle,
   ExpandedMenuHeaderBody,
   ReducedMenuBody,
+  ButtonItem,
+  BadgeItemMenu,
 } from './styles';
 
-export interface Props {}
+export interface Props {
+  options: any[];
+}
 
 export default function SideMenu(props: React.PropsWithChildren<Props>) {
   const [opened, setOpened] = useState(false);
+  const [option, setOption] = useState({title: ''} as any);
+  const {title} = option;
+
+  const {options} = props;
   return (
     <Body>
       <ReducedMenu>
         <HeaderMenu>
-          <ButtonMenu onClick={() => setOpened(!opened)}>
-            <IosMenu fontSize="20px" color={'#fff'} />
+          <ButtonMenu onClick={() => setOpened(false)}>
+            <IosMenu fontSize="22px" color={'#fff'} />
           </ButtonMenu>
         </HeaderMenu>
-        <ReducedMenuBody></ReducedMenuBody>
+        <ReducedMenuBody>
+          {options.map((item: any) => {
+            const {Icon, action} = item;
+            return (
+              <ButtonItem
+                selected={action === option.action}
+                key={action}
+                onClick={() => {
+                  setOpened(!opened);
+                  setOption(item);
+                }}>
+                {action === option.action && <BadgeItemMenu />}
+                <Icon />
+              </ButtonItem>
+            );
+          })}
+        </ReducedMenuBody>
       </ReducedMenu>
       {opened && (
         <ExpandedMenu>
-          <ExpandedMenuBody>
-            <HeaderMenu>
-              <ExpandedMenuHeaderBody>
-                <ExpandedMenuTitle>Finance</ExpandedMenuTitle>
-              </ExpandedMenuHeaderBody>
-            </HeaderMenu>
-          </ExpandedMenuBody>
+          <HeaderMenu>
+            <ExpandedMenuHeaderBody>
+              <ExpandedMenuTitle>{title}</ExpandedMenuTitle>
+            </ExpandedMenuHeaderBody>
+          </HeaderMenu>
         </ExpandedMenu>
       )}
     </Body>

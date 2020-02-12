@@ -5,6 +5,7 @@ export const Colors = {
   backgroundMenu: '#1C293B',
   backgroundHeader: '#2C405A',
   backgroundSelected: '#0093EE',
+  backgroundItemSelected: '#19344E',
   item: '#FFFFFF',
   subMenu: '#B1B6BF',
   border: '#38475B',
